@@ -68,12 +68,12 @@ func (rl statusCodeCounter) ServeHTTP(rw http.ResponseWriter, req *http.Request)
 }
 
 func copyResponse(logger *log.Entry, dst http.ResponseWriter, src *http.Response) {
-	dst.WriteHeader(src.StatusCode)
 	for k, vs := range src.Header {
 		for _, v := range vs {
 			dst.Header().Add(k, v)
 		}
 	}
+	dst.WriteHeader(src.StatusCode)
 	if src.Body != nil {
 		_, err := io.Copy(dst, src.Body)
 		if err != nil {
