@@ -11,7 +11,8 @@ required in the future as Apple's privacy proxy gains wider use.
 
 ## Environment Variables (Default Value)
 
-All environment variables are read in 
+All environment variables are read in `cmd/limit` - they are not needed to use
+`pkg/limit`.
 
 - PORT (8080) - TCP port to listen on
 - LOG_LEVEL (4) - logrus level, defaults to info, higher is more-granular
